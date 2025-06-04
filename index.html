@@ -54,23 +54,19 @@
             display: none;
         }
 #controlsContainer {
-    padding: 20px;
-}
-
-      #controlsContainer {
     width: 80%;
     max-width: 600px;
     margin: 200px auto 0 auto;
-    padding-top: 0;
+    padding: 20px 0 0 0;
     background-color: #9C6753;
     z-index: 0;
-
     display: flex;
-    flex-wrap: wrap; /* Allows wrapping if screen is too narrow */
-    gap: 10px;        /* Adds space between items */
+    flex-wrap: wrap;
+    gap: 10px;
     justify-content: center;
     align-items: center;
 }
+
         select, button {
     flex: 1 1 220px; /* Allows them to shrink or grow, but base width is ~220px */
     max-width: 100%;
