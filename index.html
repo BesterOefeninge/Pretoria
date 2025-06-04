@@ -91,7 +91,7 @@
             min-height: 200px;
             margin-bottom: 40px;
         }
-        <script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
+        
         @media print {
             body {
                 -webkit-print-color-adjust: exact;
@@ -126,7 +126,9 @@
                 margin: 0 auto 20px auto !important;
                 page-break-inside: avoid;
             }
-
+            html {
+                    counter-reset: pages;
+                }
             body::after {
                 content: "Page " counter(page);
                 position: fixed;
@@ -137,7 +139,10 @@
                 font-size: 12px;
                 color: black;
             }
-            
+            @pages {
+                    counter-increment: pages;
+
+                }
 
             @page {
                 size: A4 portrait;
