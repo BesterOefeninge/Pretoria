@@ -11,9 +11,20 @@
             background-color: #f0f0f0;
             font-family: Arial, sans-serif;
         }
-#logo {
-    margin: 30px auto;
+
+.logo-container {
+  background-image: url('logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 30vw;    /* 30% of the viewport width */
+  height: 15vw;
+  max-width: 300px;
+  max-height: 150px;
+  margin: 30px auto;
 }
+
+
 
 #logo img {
     width: 90%;
@@ -186,9 +197,9 @@
 </head>
 <body>
     <!-- Screen logo -->
-    <div id="logo" class="screen-only">
-        <img src="logo.png" alt="Company Logo" />
-    </div>
+   <div class="logo-container"></div>
+    
+
 
     <!-- Print logo for first page -->
     <div id="print-logo" class="print-only">
@@ -240,7 +251,7 @@
             <option value="standingtrapezius.jpg">Standing Trapezius</option>
             <option value="trapeziusstretch.jpg">Trapezius Stretch</option>
             <option value="thoricspineroller.jpg">Thoricspine Roller</option>
-            <option value="threadtheneedle.jpg">Threat the needle</option>
+            <option value="threadtheneedle.jpg">Thread the needle</option>
             <option value="ulnarnervestretch.jpg">Ulnar Nerve Stretch</option>
            
             
@@ -278,7 +289,7 @@
             <option value="heelraisedlunge.jpg">Heel Raised Lunge</option>
             <option value="heeltoeraise.jpg">Heel-Toe Raise</option>
             <option value="isolatedtoelift.jpg">Isolated Toe Lift</option>
-            <option value="iliopsoasleglift.jpg">Iliopsoas Leg Lif</option>
+            <option value="iliopsoasleglift.jpg">Iliopsoas Leg Lift</option>
             <option value="onelegstand.jpg">One Leg Stand</option>        
             <option value="SoleusStretch.jpg">Soleus Stretch</option>
             <option value="standingkneeraise.jpg">Standing Knee Raises</option>     
@@ -322,7 +333,7 @@
 
         <select onchange="addImage(this.value)">
             <option value="">-- Select Hip Image --</option>
-             <option value="abductionwithband.jpg">Abduction with Resistance-bandk</option>
+             <option value="abductionwithband.jpg">Abduction with Resistance-band</option>
              <option value="bentlegsidekick.jpg">Bent Leg Side-kick</option>
              <option value="hipextentionsclamstyle.jpg">Hip Extentions Clamstyle</option>
              <option value="hipextentionsstreightleg.jpg">Hip Extentions Straightleg</option>
