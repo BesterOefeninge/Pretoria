@@ -24,20 +24,6 @@
 
 
 
-
-      #print-logo {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    background: white;
-}
-
-
-
-
    #print-logo img {
     width: 100%;
     height: auto;
@@ -92,12 +78,23 @@
         }
         
       @media print {
+          
     body {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
         margin: 0;
         counter-reset: page;
     }
+
+      #print-logo {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: white;
+}
 
     .print-only {
         display: block !important;
