@@ -53,14 +53,27 @@
         .print-only {
             display: none;
         }
+#controlsContainer {
+    padding: 20px;
+}
 
-        #controlsContainer {
-    width: 80%;       /* or 600px, or whatever suits you */
-    max-width: 600px; /* limits it on bigger screens */
-    margin: 200px auto 0 auto; /* keep your top padding, center horizontally */
-    padding-top: 0;  /* move padding to margin */
+      #controlsContainer {
+    width: 80%;
+    max-width: 600px;
+    margin: 200px auto 0 auto;
+    padding-top: 0;
     background-color: #9C6753;
     z-index: 0;
+
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping if screen is too narrow */
+    gap: 10px;        /* Adds space between items */
+    justify-content: center;
+    align-items: center;
+}
+        select, button {
+    flex: 1 1 220px; /* Allows them to shrink or grow, but base width is ~220px */
+    max-width: 100%;
 }
 
 
@@ -70,13 +83,15 @@
             font-size: 16px;
         }
 
-        img.preview {
-            width: 450px;
-            margin-top: 20px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
+       img.preview {
+    width: 90%;
+    max-width: 500px;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
         hr {
             width: 60%;
