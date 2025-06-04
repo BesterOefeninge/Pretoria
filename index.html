@@ -25,14 +25,14 @@
 
 
         #print-logo {
-            display: none;
-            height: 180px;
-            margin-bottom: 20px;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    height: 180px;
+    margin-bottom: 20px;
+    background: white;
+    align-items: center;
+    justify-content: center;
+    /* Do NOT set display here */
+}
+
 
           #print-logo img {
     width: 200px;
@@ -85,65 +85,73 @@
             margin-bottom: 40px;
         }
         
-        @media print {
-            body {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-                margin: 0;
-                counter-reset: page;
-            }
-            #logo {
-                display: none !important;
-                }
-            #controlsContainer, select, button {
-                display: none !important;
-            }
+      @media print {
+    body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        margin: 0;
+        counter-reset: page;
+    }
 
-            .screen-only {
-                display: none !important;
-            }
+    .print-only {
+        display: block !important;
+    }
 
-            .print-only {
-                display: block !important;
-            }
+    .screen-only,
+    #logo,
+    #controlsContainer,
+    select,
+    button {
+        display: none !important;
+    }
 
-            #print-logo {
-                page-break-after: avoid;
-            }
+   #print-logo {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px; /* Or more, like 250px */
+    margin-bottom: 20px;
+    background: white;
+}
 
-            .print-only + * {
-                page-break-before: avoid;
-            }
+    .print-only + * {
+        page-break-before: avoid;
+    }
 
-            img.preview {
-                width: 100% !important;
-                height: auto !important;
-                margin: 0 auto 20px auto !important;
-                page-break-inside: avoid;
-            }
-            html {
-                    counter-reset: pages;
-                }
-            body::after {
-                content: "Page " counter(page);
-                position: fixed;
-                bottom: 10mm;
-                left: 0;
-                right: 0;
-                text-align: center;
-                font-size: 12px;
-                color: black;
-            }
-            @pages {
-                    counter-increment: pages;
+    img.preview {
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 auto 20px auto !important;
+        page-break-inside: avoid;
+    }
 
-                }
+    .image-wrapper {
+        display: block;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        margin-bottom: 40px;
+    }
 
-            @page {
-                size: A4 portrait;
-                margin: 10mm 15mm 15mm 15mm;
-            }
-        }
+    html {
+        counter-reset: pages;
+    }
+
+    body::after {
+        content: "Page " counter(page);
+        position: fixed;
+        bottom: 10mm;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-size: 12px;
+        color: black;
+    }
+
+    @page {
+        size: A4 portrait;
+        margin: 10mm 15mm 15mm 15mm;
+    }
+}
         .image-wrapper {
             page-break-inside: avoid;
             break-inside: avoid;
