@@ -16,7 +16,7 @@
 }
 
 #logo img {
-    width: 300px;
+    width: 100vw;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -24,21 +24,27 @@
 
 
 
-        #print-logo {
-    height: 180px;
-    margin-bottom: 20px;
-    background: white;
+
+      #print-logo {
+    display: flex !important;
     align-items: center;
     justify-content: center;
-    /* Do NOT set display here */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: white;
 }
 
 
-          #print-logo img {
-    width: 300px;
+
+
+   #print-logo img {
+    width: 100%;
     height: auto;
+    display: block;
     object-fit: contain;
 }
+
 
 
         .screen-only {
@@ -149,7 +155,7 @@
 
     @page {
         size: A4 portrait;
-        margin: 10mm 15mm 15mm 15mm;
+        margin: 10mm 5mm 15mm 5mm;
     }
 }
         .image-wrapper {
