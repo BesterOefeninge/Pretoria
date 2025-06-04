@@ -17,10 +17,10 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  width: 30vw;    /* 30% of the viewport width */
-  height: 15vw;
-  max-width: 300px;
-  max-height: 150px;
+  width: 40vw;    /* 30% of the viewport width */
+  height: 20vw;
+  max-width: 400px;
+  max-height: 200px;
   margin: 30px auto;
 }
 
@@ -196,16 +196,12 @@
     
 </head>
 <body>
-    <!-- Screen logo -->
-   <div class="logo-container"></div>
-    
-
-
     <!-- Print logo for first page -->
     <div id="print-logo" class="print-only">
         <img src="logo.png" alt="Company Logo" />
     </div>
-
+<!-- Screen logo -->
+<div class="logo-container screen-only"></div>
     <div id="controlsContainer">
         
          <select onchange="addImage(this.value)">
