@@ -16,18 +16,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  max-width: 100%;
-  margin: 20px auto 10px auto; /* Adjust spacing */
-  padding: 20px
+  background: linear-gradient(to right, #ececec, #ffffff); /* soft background */
+  padding: 40px 20px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ccc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .logo-container img {
-  height: 300px;       /* or try 350px or more */
+  height: 280px; /* Adjustable */
   width: auto;
-  max-width: 90%;      /* still responsive */
-  display: block;
+  max-width: 90%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+  transition: transform 0.3s ease;
 }
+
+.logo-container img:hover {
+  transform: scale(1.03);
+}
+
 
 
 
