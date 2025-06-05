@@ -17,7 +17,7 @@
   justify-content: center;
   align-items: center;
   background: linear-gradient(to right, #ececec, #ffffff); /* soft background */
-  padding: 20px10px;
+  padding: 20px 10px;
   margin-bottom: 5px;
   border-bottom: 2px solid #ccc;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -72,9 +72,10 @@
 
 
 select, button {
-    width: 95%; /* Slightly narrower than container */
-    padding: 10px;
-    font-size: 15px;
+    width: 95%; /* same width for both */
+    margin: 12px auto; /* 12px top/bottom margin, auto left/right centers */
+    padding: 10px;     /* consistent padding */
+    font-size: 15px;   /* consistent font size */
     font-weight: bold;
     background-color: #eee;
     cursor: pointer;
@@ -82,10 +83,9 @@ select, button {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    margin-left: auto;
-    margin-right: auto;
     display: block;
 }
+
 
 
 button:hover {
@@ -93,12 +93,7 @@ button:hover {
 }
 
 
-        select {
-            margin: 20px;
-            padding: 8px;
-            font-size: 16px;
-        }
-
+    
        img.preview {
     width: 90%;
     max-width: 500px;
