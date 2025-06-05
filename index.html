@@ -402,38 +402,61 @@ summary {
         </select>
 
         <button onclick="window.print()">Print</button>
+        <button onclick="clearImages()">Clear All</button>
+
     </div>
 
     <div id="imageContainer"></div>
 </div>
     <script>
-    function addImage(src) {
-        if (!src) return;
+   
+function addImage(src) {
+    if (!src) return;
 
-        const imageContainer = document.getElementById("imageContainer");
+    const imageContainer = document.getElementById("imageContainer");
 
-        // Prevent duplicates
-        const existingImages = imageContainer.querySelectorAll("img.preview");
-        for (const img of existingImages) {
-            if (img.src.includes(src)) return;
-        }
-
-        const wrapper = document.createElement("div");
-        wrapper.className = "image-wrapper";
-
-        if (imageContainer.children.length > 0) {
-            const hr = document.createElement("hr");
-            wrapper.appendChild(hr);
-        }
-
-        const img = document.createElement("img");
-        img.src = src;
-        img.className = "preview";
-        wrapper.appendChild(img);
-
-        imageContainer.appendChild(wrapper);
+    // Prevent duplicates
+    const existingImages = imageContainer.querySelectorAll("img.preview");
+    for (const img of existingImages) {
+        if (img.src.includes(src)) return;
     }
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "image-wrapper";
+
+    if (imageContainer.children.length > 0) {
+        const hr = document.createElement("hr");
+        wrapper.appendChild(hr);
+    }
+
+    const img = document.createElement("img");
+img.src = src;
+img.className = "preview";
+
+// Create readable alt text from the filename (e.g., "Backpress.jpg" → "Backpress")
+const altText = src
+    .split('.')[0]             // Remove file extension
+    .replace(/[-_]/g, ' ')     // Replace dashes/underscores with spaces
+    .replace(/([a-z])([A-Z])/g, '$1 $2'); // Add space between camelCase
+
+img.alt = altText;
+wrapper.appendChild(img);
+
+
+    imageContainer.appendChild(wrapper);
+}
+
+function clearImages() {
+    document.getElementById("imageContainer").innerHTML = '';
+}
+
+document.getElementById("imageContainer").addEventListener("click", function (e) {
+    if (e.target.tagName === "IMG") {
+        e.target.closest(".image-wrapper").remove();
+    }
+});
 </script>
+
 
 </body>
 </html>
