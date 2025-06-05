@@ -56,16 +56,17 @@
 #controlsContainer {
     width: 80%;
     max-width: 600px;
-    margin: 200px auto 0 auto;
+    margin: 40px 0 0 30px; /* Top and left margin */
     padding: 20px 0 0 0;
     background-color: #9C6753;
     z-index: 0;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column; /* Stack elements vertically */
     gap: 10px;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start; /* Align top (optional) */
+    align-items: flex-start; /* Align to left */
 }
+
 
         select, button {
     flex: 1 1 220px; /* Allows them to shrink or grow, but base width is ~220px */
