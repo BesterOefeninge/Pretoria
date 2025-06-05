@@ -71,9 +71,8 @@
 }
 
 
-select,button {
-    width: 95%;
-    margin-right: auto;
+select, button {
+    width: 95%; /* Slightly narrower than container */
     padding: 10px;
     font-size: 15px;
     font-weight: bold;
@@ -83,7 +82,11 @@ select,button {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
+
 
 button:hover {
     background-color: #ddd;
@@ -202,7 +205,12 @@ button:hover {
     flex-direction: column;
     padding: 10px;
   }
-
+ select, button {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
   #controlsContainer {
     width: 100%;
     height: auto;
