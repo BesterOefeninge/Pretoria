@@ -26,7 +26,7 @@
 
 
 
-#logo img {
+.logo-container img {
     width: 90%;
     max-width: 90%;
     height: 70%;
@@ -62,13 +62,17 @@
 
 #controlsContainer {
     flex: 0 0 250px;
+    height: 80vh;
+    overflow-y: auto;
     padding: 10px;
     background-color: #9C6753;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 12px;
     align-items: flex-start;
+    border-radius: 6px;
 }
+
 
 select, button {
     width: 100%;
@@ -76,12 +80,6 @@ select, button {
     font-size: 14px;
     margin: 0;
 }
-
-#imageContainer {
-    flex: 1;
-    min-width: 0;
-}
-
 
 
         select {
@@ -125,17 +123,7 @@ select, button {
         counter-reset: page;
     }
 
-      #print-logo {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    background: white;
-}
-
-    .print-only {
+         .print-only {
         display: block !important;
     }
 
@@ -206,7 +194,37 @@ select, button {
                 break-inside: avoid;
             }
         }
+        @media (max-width: 768px) {
+  #mainLayout {
+    flex-direction: column;
+    padding: 10px;
+  }
 
+  #controlsContainer {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+#imageContainer {
+    flex: 1;
+    min-width: 0;
+    min-height: 200px;
+    margin-bottom: 40px;
+}
+
+
+details {
+  width: 100%;
+  background-color: #fdfdfd;
+  border-radius: 4px;
+  padding: 8px;
+}
+summary {
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 6px;
+}
 
     </style>
     <script>
@@ -218,6 +236,7 @@ select, button {
     }
 </script>
     
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     
 </head>
@@ -235,8 +254,10 @@ select, button {
         <!-- ✅ Paste all your real <select> and <button> elements here ONLY -->
    
         
-         <select onchange="addImage(this.value)">
-            <option value="">-- Select Lumbar Image --</option>
+  <details open>
+  <summary>Lumbar</summary>
+  <select onchange="addImage(this.value)">
+    <option value="">-- Select Lumbar Image --</option>
              <option value="Backpress.jpg">Back Press</option>
              <option value="Bridge.jpg">Bridge</option>
              <option value="bridgewpillow.jpg">Bridge with Pillow</option>
@@ -262,8 +283,10 @@ select, button {
         </select>    
 
         
-        <select onchange="addImage(this.value)">
-          <option value="">-- Select Cervical & Thoracic Image --</option>
+        <details open>
+ <summary>Cervical & Thoracic</summary>
+  <select onchange="addImage(this.value)">
+    <option value="">-- Select Cervical & Thoracic --</option>
             <option value="Abdominalbreathing.jpg">Abdominal Breathing</option>
             <option value="bilatarmglidewall.jpg">Bilateral Wall Glide</option>
             <option value="chintuck.jpg">Chintuck</option>
@@ -285,8 +308,10 @@ select, button {
         </select>        
 
         
-        <select onchange="addImage(this.value)">
-             <option value="">-- Select Knee / Leg Image --</option>
+        <details open>
+ <summary>Knee & Leg</summary>
+  <select onchange="addImage(this.value)">
+    <option value="">-- Select Knee & Leg Image --</option>
                 <option value="anklestretchwithtowel.jpg">Ankle Stretch with Towel</option>
                 <option value="assistedbentknee.jpg">Assisted Knee Bend</option>
                 <option value="footglideinchair.jpg">Foot Glide in Chair</option>
@@ -306,8 +331,10 @@ select, button {
            
         </select>
         
-        <select onchange="addImage(this.value)">
-             <option value="">-- Select Ankle Image --</option>
+        <details open>
+   <summary>Ankle</summary>
+  <select onchange="addImage(this.value)">
+    <option value="">-- Select Ankle Image --</option>
             <option value="ankleeversionrb.jpg">Ankle Eversion with Resistance-band</option>
             <option value="balletjie.jpg">Balletjie</option>
             <option value="calfaisesonstairs.jpg">Calf Raises on Stairs</option>
@@ -328,8 +355,10 @@ select, button {
             
         </select>
         
-        <select onchange="addImage(this.value)">
-            <option value="">-- Select Shoulder Image --</option>
+        <details open>
+ <summary>Shoulder</summary>
+  <select onchange="addImage(this.value)">
+    <option value="">-- Select Shoulder Image --</option>
                 <option value="crossbodyshoulderstretch.jpg">Cross-body Shoulder Stretch</option>
                 <option value="doorstretch.jpg">Door Stretch</option>
                 <option value="externalrotationresistance.jpg">External Rotation Resistance</option>
@@ -358,8 +387,10 @@ select, button {
             
         </select>
 
-        <select onchange="addImage(this.value)">
-            <option value="">-- Select Hip Image --</option>
+        <details open>
+  <summary>Hip</summary>
+  <select onchange="addImage(this.value)">
+    <option value="">-- Select Hip Image --</option>
              <option value="abductionwithband.jpg">Abduction with Resistance-band</option>
              <option value="bentlegsidekick.jpg">Bent Leg Side-kick</option>
              <option value="hipextentionsclamstyle.jpg">Hip Extentions Clamstyle</option>
@@ -376,28 +407,33 @@ select, button {
     <div id="imageContainer"></div>
 </div>
     <script>
-        function addImage(src) {
-            if (!src) return;
+    function addImage(src) {
+        if (!src) return;
 
-            const imageContainer = document.getElementById("imageContainer");
+        const imageContainer = document.getElementById("imageContainer");
 
-            // Add horizontal line if any image already exists
-            const wrapper = document.createElement("div");
-            wrapper.className = "image-wrapper";
-
-            if (imageContainer.children.length > 0) {
-                const hr = document.createElement("hr");
-                wrapper.appendChild(hr);
-            }
-
-            const img = document.createElement("img");
-            img.src = src;
-            img.className = "preview";
-            wrapper.appendChild(img);
-
-            imageContainer.appendChild(wrapper);
-
+        // Prevent duplicates
+        const existingImages = imageContainer.querySelectorAll("img.preview");
+        for (const img of existingImages) {
+            if (img.src.includes(src)) return;
         }
-    </script>
+
+        const wrapper = document.createElement("div");
+        wrapper.className = "image-wrapper";
+
+        if (imageContainer.children.length > 0) {
+            const hr = document.createElement("hr");
+            wrapper.appendChild(hr);
+        }
+
+        const img = document.createElement("img");
+        img.src = src;
+        img.className = "preview";
+        wrapper.appendChild(img);
+
+        imageContainer.appendChild(wrapper);
+    }
+</script>
+
 </body>
 </html>
