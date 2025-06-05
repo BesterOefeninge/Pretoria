@@ -53,25 +53,35 @@
         .print-only {
             display: none;
         }
-#controlsContainer {
-    width: 80%;
-    max-width: 600px;
-    margin: 40px 0 0 30px; /* Top and left margin */
-    padding: 20px 0 0 0;
-    background-color: #9C6753;
-    z-index: 0;
+#mainLayout {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    gap: 10px;
-    justify-content: flex-start; /* Align top (optional) */
-    align-items: flex-start; /* Align to left */
+    align-items: flex-start;
+    padding: 20px;
+    gap: 30px; /* Space between sidebar and preview */
 }
 
-
-        select, button {
-    flex: 1 1 220px; /* Allows them to shrink or grow, but base width is ~220px */
-    max-width: 100%;
+#controlsContainer {
+    flex: 0 0 250px;
+    padding: 10px;
+    background-color: #9C6753;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
 }
+
+select, button {
+    width: 100%;
+    padding: 6px;
+    font-size: 14px;
+    margin: 0;
+}
+
+#imageContainer {
+    flex: 1;
+    min-width: 0;
+}
+
 
 
         select {
@@ -212,13 +222,18 @@
     
 </head>
 <body>
-    <!-- Print logo for first page -->
-    <div id="print-logo" class="print-only">
-        <img src="logo.png" alt="Company Logo" />
-    </div>
+ <!-- Print-only logo -->
+<div id="print-logo" class="print-only">
+    <img src="logo.png" alt="Company Logo" />
+</div>
+
 <!-- Screen logo -->
 <div class="logo-container screen-only"></div>
+ <!-- Main layout container: this holds both sidebar and preview -->
+<div id="mainLayout">
     <div id="controlsContainer">
+        <!-- ✅ Paste all your real <select> and <button> elements here ONLY -->
+   
         
          <select onchange="addImage(this.value)">
             <option value="">-- Select Lumbar Image --</option>
@@ -359,7 +374,7 @@
     </div>
 
     <div id="imageContainer"></div>
-
+</div>
     <script>
         function addImage(src) {
             if (!src) return;
